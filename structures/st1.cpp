@@ -6,7 +6,7 @@ int main(){
     struct{
         int num;
         string var;
-    }my_struct1,my_struct2;         //my_struct is the name of the struct
+    }my_struct1,my_struct2;         //my_struct1 is a variable of the struct
     //below two lines assign a value to each members
     my_struct1.num = 12;
     my_struct1.var = "hello";
