@@ -11,9 +11,18 @@ int main()
 {
     int x = 10;
     auto show = [x](){
-        std::cout<<x<<'\n';
+        std::cout<<x<<'\n';       
     };
+    show();//prints 10
+    x = 6;
+    show();//prints 10 , bcz once x is defined it doesnt change
 
-    show();
+    int y = 10;
+    auto make = [&y](){
+        std::cout<<y<<'\n';
+    };
+    make();//prints 10
+    y = 6;
+    make();//prints 6 , bcz here make() defines the address of y .
     return 0;
 }
