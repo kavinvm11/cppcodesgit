@@ -1,7 +1,10 @@
 #include<iostream>
 using namespace std;
 int prime(int m){
-    for(int i = 3;i*i<m;i+=2){           
+    if (m%2 == 0){
+        return 0;
+    }
+    for(int i = 3;i*i<m;i+=2){          //see below for why we did i*i    
         if(m%i == 0){
             return 0;
         }
@@ -19,7 +22,7 @@ int main()
     int up{};
     int lp{};
     int ans{};
-    for (int a = x;a++;){
+    for (int a = x;true;a++){           //use this format(very imp)
         if (prime(a)){
             up = a;
             break;
@@ -28,7 +31,7 @@ int main()
             continue;
         }
     }
-    for (int b = x;b--;){
+    for (int b = x;true;b--){
         if (prime(b)){
             lp = b;
             break;
@@ -37,7 +40,10 @@ int main()
             continue;
         }
     }
-    if(x-lp<up-x){
+    if (lp == up){
+        cout<<x<< " is itself a prime number"<<endl;
+    }
+    else if(x-lp<up-x){
         ans = lp;
         cout<<ans<<" is the nearest prime number "<<endl;
     }
