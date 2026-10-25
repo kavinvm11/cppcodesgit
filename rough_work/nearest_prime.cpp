@@ -19,40 +19,28 @@ int main()
     cout<<"enter an integer"<<endl;
     int x{};
     cin>>x;
-    int up{};
-    int lp{};
-    int ans{};
-    for (int a = x;true;a++){           //use this format(very imp)
-        if (prime(a)){
-            up = a;
-            break;
-        }
-        else{
-            continue;
-        }
-    }
-    for (int b = x;true;b--){
-        if (prime(b)){
-            lp = b;
-            break;
-        }
-        else{
-            continue;
-        }
-    }
-    if (lp == up){
-        cout<<x<< " is itself a prime number"<<endl;
-    }
-    else if(x-lp<up-x){
-        ans = lp;
-        cout<<ans<<" is the nearest prime number "<<endl;
-    }
-    else if (x-lp>up-x){
-        ans = up;
-        cout<<ans<<" is the nearest prime number "<<endl;
+    int right = x+1;
+    int left = x-1;
+    if (prime(x)){
+        cout<<x<<" is the prime number"<<endl;
     }
     else{
-        cout<<"both "<<lp<<" and "<<up<<" are correct"<<endl;
+        while(true){
+            if(prime(right)||prime(left)){
+                if(prime(right)&&prime(left)){
+                    cout<<"both "<<right<<" and "<<left<<" are the nearest prime numbers"<<endl;
+                }
+                else if (prime(left)){
+                    cout<<left<<" is the nearest prime number"<<endl;
+                }
+                else{
+                    cout<<right<<" is the nearest prime number"<<endl;
+                }
+                break;
+            }
+            right++;
+            left--;
+        }
     }
     return 0;
 }
