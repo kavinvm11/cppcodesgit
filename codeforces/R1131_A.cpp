@@ -10,7 +10,7 @@ int main()
     cin>>n;
     for(int i=0;i<n;i++){
         cin>>p>>q;
-        if(!(p-q)==3){
+        if((p-q)!=3){
             cout<<"NO"<<endl;
             break;
         }
